@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#160d18">
+<title>For Taz ❤️</title>
+<style>
+  :root { --bg:#160d18; --panel:rgba(255,255,255,.075); --pink:#ff8eb4; --rose:#ff5f91; --cream:#fff2f5; --muted:#d9bac8; }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; min-height:100vh; color:var(--cream); font-family: Georgia, "Times New Roman", serif; background:radial-gradient(ellipse at top, #482039 0%, #241323 42%, #100b14 100%); overflow-x:hidden; }
+  button { font:inherit; cursor:pointer; }
+  .stars { position:fixed; inset:0; pointer-events:none; overflow:hidden; z-index:0; }
+  .star { position:absolute; color:#ffd6e4; opacity:.55; animation:twinkle 3s infinite ease-in-out; }
+  @keyframes twinkle { 0%,100%{opacity:.2;transform:scale(.8)} 50%{opacity:.9;transform:scale(1.2)} }
+  .wrap { position:relative; z-index:1; width:min(760px, 100%); margin:0 auto; padding:28px 18px 60px; }
+  .topline { text-align:center; color:#f2b8ce; font:12px/1.5 Arial,sans-serif; letter-spacing:.24em; text-transform:uppercase; margin:12px 0 26px; }
+  .hero { text-align:center; padding:35px 20px 30px; }
+  .tiny { color:#f8b4cd; font:12px Arial,sans-serif; letter-spacing:.18em; text-transform:uppercase; }
+  h1 { font-size:clamp(43px, 10vw, 76px); font-weight:normal; line-height:1.02; margin:18px 0 14px; }
+  h1 span { color:var(--pink); font-style:italic; }
+  .intro { max-width:510px; margin:0 auto; color:#f1d9e3; font-size:18px; line-height:1.7; }
+  .heart { font-size:44px; display:inline-block; margin-top:24px; filter:drop-shadow(0 0 18px #ff679e66); animation:heartbeat 1.8s infinite; }
+  @keyframes heartbeat { 0%,100%{transform:scale(1)} 12%{transform:scale(1.12)} 24%{transform:scale(1)} 36%{transform:scale(1.08)} }
+  .panel { border:1px solid #ffffff20; background:var(--panel); border-radius:22px; padding:26px; margin:16px 0; box-shadow:0 18px 60px #00000020; backdrop-filter:blur(8px); }
+  .panel h2 { margin:0 0 13px; font-size:28px; font-weight:normal; color:#ffc0d5; }
+  .panel p { color:#f0dce5; font-size:17px; line-height:1.8; margin:0 0 12px; }
+  .panel p:last-child { margin-bottom:0; }
+  .center { text-align:center; }
+  .btn { border:0; border-radius:999px; padding:14px 22px; color:#321324; background:linear-gradient(135deg,#ffc1d6,#ff7da8); box-shadow:0 8px 26px #ff609533; font:600 14px Arial,sans-serif; transition:transform .2s, filter .2s; }
+  .btn:hover { transform:translateY(-2px); filter:brightness(1.06); }
+  .btn.secondary { background:transparent; border:1px solid #ffb0cb77; color:#ffe5ee; box-shadow:none; }
+  .btn-row { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-top:20px; }
+  .hidden { display:none !important; }
+  .reveal { animation:appear .65s ease both; }
+  @keyframes appear { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+  .promise { display:grid; gap:12px; margin-top:18px; }
+  .promise-item { display:flex; gap:12px; align-items:flex-start; padding:14px; border-radius:14px; background:#ffffff08; color:#f2dce5; line-height:1.6; }
+  .promise-item b { color:#ffb6cf; font-weight:normal; }
+  .letter { border-left:2px solid #ff8eb477; padding-left:20px; margin-top:12px; }
+  .signature { color:#ffb7ce; font-style:italic; font-size:24px; margin-top:18px; }
+  .footer { text-align:center; color:#caa7b7; font:12px/1.7 Arial,sans-serif; padding:28px 10px 0; }
+  .float-heart { position:fixed; bottom:-35px; z-index:4; pointer-events:none; animation:floatUp 4.5s ease-in forwards; }
+  @keyframes floatUp { to { transform:translateY(-110vh) rotate(24deg); opacity:0; } }
+  .progress { display:flex; justify-content:center; gap:7px; margin:22px 0 6px; }
+  .dot { height:5px; width:24px; border-radius:5px; background:#ffffff26; }
+  .dot.active { background:#ff9fbd; }
+  @media(max-width:480px){ .panel{padding:21px 19px} .hero{padding:25px 8px} .intro{font-size:16px} .panel p{font-size:16px} }
+  @media(prefers-reduced-motion:reduce){ *,*::before,*::after{animation-duration:.01ms!important;scroll-behavior:auto!important;transition:none!important} }
+</style>
+</head>
+<body>
+<div class="stars" id="stars" aria-hidden="true"></div>
+<main class="wrap">
+  <div class="topline">A little something, just for you</div>
+  <section class="hero">
+    <div class="tiny">To my Taz</div>
+    <h1>I’m sorry, <span>Taz.</span></h1>
+    <p class="intro">I made this because you deserve more than a quick “sorry”. You deserve to know that I care about how you feel, and that I’m taking it to heart.</p>
+    <div class="heart" aria-hidden="true">♡</div>
+    <div class="btn-row">
+      <button class="btn" id="openBtn">Open my heart ❤️</button>
+      <button class="btn secondary" id="musicBtn" aria-pressed="false">Play gentle music ♪</button>
+    </div>
+    <div class="progress" aria-label="Apology sections"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+  </section>
+
+  <section class="panel hidden" id="apology">
+    <div class="tiny">What I need you to know</div>
+    <h2>I should have made you feel heard.</h2>
+    <p>Taz, I’m sorry I got confused about that detail and made you feel like I wasn’t listening to you. I can understand why that hurt, especially when you were trying to tell me something that mattered to you.</p>
+    <p>I wasn’t trying to dismiss you, but I know that what I meant doesn’t erase how it made you feel. I don’t want you to feel like you have to repeat yourself or fight for my attention. You matter to me, and what you say matters to me.</p>
+    <p>I’m sorry for making you doubt that. I should have slowed down, paid closer attention, and asked instead of getting it wrong.</p>
+    <div class="btn-row"><button class="btn" id="nextBtn">There’s something else ❤️</button></div>
+  </section>
+
+  <section class="panel hidden" id="promise">
+    <div class="tiny">Not just words</div>
+    <h2>I want to do better.</h2>
+    <p>I can’t promise I’ll never misunderstand something again, but I can promise to take more care with the way I listen to you.</p>
+    <div class="promise">
+      <div class="promise-item"><span>♡</span><div><b>Listen properly.</b><br>I’ll give you my attention instead of assuming I already understand.</div></div>
+      <div class="promise-item"><span>♡</span><div><b>Ask when I’m unsure.</b><br>If I get confused, I’ll ask you to explain rather than guess.</div></div>
+      <div class="promise-item"><span>♡</span><div><b>Take your feelings seriously.</b><br>I’ll try to understand why something hurt you, not just explain what I meant.</div></div>
+    </div>
+    <div class="btn-row"><button class="btn" id="letterBtn">Read my whole heart 💌</button></div>
+  </section>
+
+  <section class="panel hidden" id="letter">
+    <div class="tiny">A letter for you</div>
+    <h2>You’re important to me, Taz.</h2>
+    <div class="letter">
+      <p>I never want a small moment like this to leave you feeling unimportant to me. You deserve to feel listened to, understood, and loved, even when we misunderstand each other.</p>
+      <p>I know an apology only means something if I let my actions back it up. So I’m not asking you to forget how you felt or to be okay straight away. I just want you to know that I hear you now, I understand why it upset you, and I’m sorry.</p>
+      <p>You mean so much to me, Taz. I care about your thoughts, your feelings, and the little details you share with me. I want to be someone you can talk to and feel safe with, not someone who makes you wonder whether I’m paying attention.</p>
+      <p>Thank you for being honest with me about how you felt. I love you, and I want to keep learning how to love you better.</p>
+    </div>
+    <div class="signature">With all my love, always. ♡</div>
+    <div class="btn-row"><button class="btn" id="questionBtn">One last thing…</button></div>
+  </section>
+
+  <section class="panel hidden center" id="question">
+    <div class="heart">♡</div>
+    <h2>Can I make it right?</h2>
+    <p>I know I can’t fix everything with a website. I just wanted to make the effort to show you that you’re worth it, and that I mean this apology.</p>
+    <p>Whenever you’re ready, I’d really like to listen to you properly and make things right.</p>
+    <div class="btn-row">
+      <button class="btn" id="forgiveBtn">I hear you ❤️</button>
+      <button class="btn secondary" id="spaceBtn">I need a little time</button>
+    </div>
+    <p class="hidden reveal" id="response" style="margin-top:20px;color:#ffc1d7;"></p>
+  </section>
+  <div class="footer">Made with love, for Taz ♡<br>No pressure to respond before you’re ready.</div>
+</main>
+<script>
+  const $ = id => document.getElementById(id);
+  const sections = ['apology','promise','letter','question'];
+  function show(id) {
+    $(id).classList.remove('hidden');
+    $(id).classList.add('reveal');
+    $(id).scrollIntoView({behavior:'smooth', block:'center'});
+    const idx = sections.indexOf(id);
+    document.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active', i <= Math.min(idx,2)));
+    burstHearts(7);
+  }
+  $('openBtn').addEventListener('click', () => { show('apology'); $('openBtn').textContent='My heart is open ❤️'; $('openBtn').disabled=true; });
+  $('nextBtn').addEventListener('click',()=>show('promise'));
+  $('letterBtn').addEventListener('click',()=>show('letter'));
+  $('questionBtn').addEventListener('click',()=>show('question'));
+  $('forgiveBtn').addEventListener('click',()=>{ $('response').textContent='Thank you for hearing me, Taz. I’ll keep showing you through my actions that I mean what I said. ❤️'; $('response').classList.remove('hidden'); burstHearts(22); });
+  $('spaceBtn').addEventListener('click',()=>{ $('response').textContent='Of course, take the time you need. I’m sorry, and I’ll be here when you’re ready. ❤️'; $('response').classList.remove('hidden'); });
+  function burstHearts(count) {
+    const symbols=['♡','♥','✧'];
+    for(let i=0;i<count;i++){
+      const el=document.createElement('span'); el.className='float-heart'; el.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+      el.style.left=(Math.random()*94+3)+'vw'; el.style.color=['#ff8eb4','#ffd3e1','#ff5f91'][Math.floor(Math.random()*3)];
+      el.style.fontSize=(14+Math.random()*22)+'px'; el.style.animationDuration=(3.2+Math.random()*2.5)+'s';
+      document.body.appendChild(el); setTimeout(()=>el.remove(),6000);
+    }
+  }
+  const stars=$('stars');
+  for(let i=0;i<38;i++){ const s=document.createElement('span'); s.className='star'; s.textContent=Math.random()>.5?'✦':'·'; s.style.left=Math.random()*100+'%'; s.style.top=Math.random()*100+'%'; s.style.fontSize=(8+Math.random()*12)+'px'; s.style.animationDelay=(Math.random()*3)+'s'; stars.appendChild(s); }
+  // A gentle original tone made with the browser's audio synthesizer. It starts only after a tap.
+  let audioCtx=null, musicTimer=null, playing=false, noteIndex=0;
+  const notes=[523.25,659.25,783.99,659.25,587.33,698.46,880,698.46];
+  function playNote(){
+    if(!audioCtx || !playing) return;
+    const now=audioCtx.currentTime, osc=audioCtx.createOscillator(), gain=audioCtx.createGain();
+    osc.type='sine'; osc.frequency.value=notes[noteIndex++%notes.length];
+    gain.gain.setValueAtTime(0.0001,now); gain.gain.exponentialRampToValueAtTime(0.045,now+.08); gain.gain.exponentialRampToValueAtTime(0.0001,now+.65);
+    osc.connect(gain); gain.connect(audioCtx.destination); osc.start(now); osc.stop(now+.7);
+  }
+  $('musicBtn').addEventListener('click',async()=>{
+    if(!audioCtx) audioCtx=new (window.AudioContext||window.webkitAudioContext)();
+    if(audioCtx.state==='suspended') await audioCtx.resume();
+    playing=!playing; $('musicBtn').setAttribute('aria-pressed',String(playing));
+    $('musicBtn').textContent=playing?'Pause gentle music ♪':'Play gentle music ♪';
+    if(playing){playNote(); musicTimer=setInterval(playNote,720);} else {clearInterval(musicTimer);}
+  });
+</script>
+</body>
+</html>
